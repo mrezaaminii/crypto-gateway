@@ -13,6 +13,10 @@ type Amount struct {
 
 var ErrInvalidFormat = errors.New("Invalid Amount provided!")
 
+func NewAmount(v *big.Int) Amount {
+	return Amount{value: v}
+}
+
 func ParseAmount(s string, decimals int) (Amount, error) {
 	s = strings.TrimSpace(s)
 
