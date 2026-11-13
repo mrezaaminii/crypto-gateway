@@ -12,6 +12,11 @@ type Asset struct {
 	Contract string
 }
 
+const (
+	Bitcoin Network = "bitcoin"
+	Ethereum Network = "ethereum"
+)
+
 func (asset *Asset) IsNative() bool {
 	if strings.TrimSpace(asset.Contract) != "" {
 		return false
