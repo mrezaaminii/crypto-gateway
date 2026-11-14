@@ -28,3 +28,26 @@ func TestParse(t *testing.T) {
 		}
 	}
 }
+
+func TestAmountString(t *testing.T) {
+	tests := []struct {
+		input    string
+		decimals int
+		want     string
+	}{
+		{"1.5", 18, "1.5"},
+		{"0.000001", 6, "0.000001"},
+		{"100", 8, "100"},
+		{"0", 18, "0"},
+	}
+
+	for _, tt := range tests {
+		a, err := ParseAmount(tt.input, tt.decimals)
+		if err != nil {
+			t.Fatalf("ParseAmount(%q): %v", tt.input, err)
+		}
+		if got := a.String(tt.decimals); got != tt.want {
+			t.Errorf("String() = %q, want %q", got, tt.want)
+		}
+	}
+}
