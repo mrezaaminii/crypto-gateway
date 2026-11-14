@@ -7,15 +7,15 @@ import (
 )
 
 type TransferRequest struct {
-	Asset asset.Asset
-	From string 
-	To string 
+	Asset  asset.Asset
+	From   string
+	To     string
 	Amount asset.Amount
-	Memo string
+	Memo   string
 }
 
 type Fee struct {
-	Asset asset.Asset
+	Asset  asset.Asset
 	Amount asset.Amount
 }
 
