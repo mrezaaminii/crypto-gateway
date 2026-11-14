@@ -37,12 +37,12 @@ func ParseAmount(s string, decimals int) (Amount, error) {
 		return Amount{}, fmt.Errorf("%w: Too many decimal (max is %d)", ErrInvalidFormat, decimals)
 	}
 
-	frac += strings.Repeat("0", decimals - len(frac))
+	frac += strings.Repeat("0", decimals-len(frac))
 
-	value, ok := new(big.Int).SetString(whole + frac, 10)
+	value, ok := new(big.Int).SetString(whole+frac, 10)
 
 	if !ok {
-		return Amount{}, fmt.Errorf("%w: %q", ErrInvalidFormat, s) 
+		return Amount{}, fmt.Errorf("%w: %q", ErrInvalidFormat, s)
 	}
 
 	return Amount{value: value}, nil
@@ -56,7 +56,7 @@ func (a *Amount) String(decimals int) string {
 	digits := a.value.String()
 
 	if len(digits) <= decimals {
-		digits = strings.Repeat("0", decimals - len(digits)+1) + digits
+		digits = strings.Repeat("0", decimals-len(digits)+1) + digits
 	}
 
 	split := len(digits) - decimals

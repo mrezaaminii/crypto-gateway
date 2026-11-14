@@ -27,5 +27,5 @@ func (r *Registry) For(n asset.Network) (Chain, error) {
 		return nil, fmt.Errorf("%w: %q", ErrUnsupportedNetwork, n)
 	}
 
-	return chain ,nil
+	return chain, nil
 }

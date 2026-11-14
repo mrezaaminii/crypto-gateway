@@ -13,7 +13,7 @@ type Asset struct {
 }
 
 const (
-	Bitcoin Network = "bitcoin"
+	Bitcoin  Network = "bitcoin"
 	Ethereum Network = "ethereum"
 )
 
