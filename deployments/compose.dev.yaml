@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      target: dev
+    volumes:
+      - ..:/src
+      - gomodcache:/go/pkg/mod
+    ports:
+      - "8080:8080"
+    healthcheck:
+      start_period: 60s
+
+  migrate:
+    build:
+      target: dev
+    entrypoint: ["go", "run", "./cmd/migrate", "up"]
+    volumes:
+      - ..:/src
+      - gomodcache:/go/pkg/mod
+
+volumes:
+  gomodcache:
