@@ -1,0 +1,19 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Build output
+bin/
+tmp/
+*.exe
+
+# Test and coverage output
+*.out
+coverage.html
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
